@@ -43,6 +43,7 @@ class Espresso(QMainWindow):
                 f' {dialog.ground_or_grains}, "{dialog.taste_description}", {dialog.price}, {dialog.packing_volume})')
             self.con.commit()
             res = cur.execute('SELECT * FROM coffee').fetchall()
+            self.table.setRowCount(len(res))
             for i, row in enumerate(res):
                 for j, elem in enumerate(row):
                     if j == 2:
