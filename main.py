@@ -8,8 +8,8 @@ class Espresso(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('main.ui', self)
-        self.con = sqlite3.connect('cappuccino db.db')
 
+        self.con = sqlite3.connect('cappuccino db.db')
         res = self.con.cursor().execute('SELECT * FROM coffee').fetchall()
         self.table.setColumnCount(len(res[0]))
         self.table.setRowCount(len(res))
